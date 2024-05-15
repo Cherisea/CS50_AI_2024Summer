@@ -14,7 +14,7 @@ This course marks my first step towards that goal.
 - A* search combines the best of both worlds from greedy best-first search and dijkstra's search, ensuring an optimal solution while keeping the cost low.
 
 
-**Assignment: Tic Tac Toe**
+**Assignment: Tic Tac Toe** [Project Directory](/tictactoe/)
 - We're asked to implement a minimax search algorithm in a Tic Tac Toe game where a player is pitted against the computer on a 3x3 board.
 - The computer is playing optimally by assuming the most likely move that the opponent would take at each turn out of all possible moves. 
 - It could be challenging to code function minimax as it involves calling another function that in turn invokes the caller until a terminal state is reached.
