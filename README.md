@@ -19,4 +19,4 @@ This course marks my first step towards that goal.
 - The computer is playing optimally by assuming the most likely move that the opponent would take at each turn out of all possible moves. 
 - It could be challenging to code function minimax as it involves calling another function that in turn invokes the caller until a terminal state is reached.
 - Driver file resides in `runner.py`, while all functions are inside `tictactoe.py`. Play the game by issuing `python runner.py` from the command line.
-
+- Check the demo ![tic tac toe demo](/demos/tictactoe.gif)
