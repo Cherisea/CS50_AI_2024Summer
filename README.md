@@ -20,3 +20,7 @@ This course marks my first step towards that goal.
 - It could be challenging to code function minimax as it involves calling another function that in turn invokes the caller until a terminal state is reached.
 - Driver file resides in `runner.py`, while all functions are inside `tictactoe.py`. Play the game by issuing `python runner.py` from the command line.
 - Check the demo ![tic tac toe demo](/demos/tictactoe.gif)
+
+**Extended Challenge**
+- Integrate alpah-beta pruning with the minimax algorithm for better performance.
+- Code a game that's more complex than tic tac toe in a 3x3 board. 
