@@ -1,4 +1,9 @@
+# No files related to python virtual environment
 **/Pipfile
 **/Pipfile.lock
+
+# No system cache files created by python
 **/__pycache__/
+
+# No files of folder metadata on MAC
 **/.DS_Store
