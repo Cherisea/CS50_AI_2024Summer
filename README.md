@@ -14,7 +14,7 @@ This course marks my first step towards that goal.
 - A* search combines the best of both worlds from greedy best-first search and dijkstra's search, ensuring an optimal solution while keeping the cost low.
 
 
-**Assignment: Tic Tac Toe** [Project Directory](/tictactoe/)
+**Assignment: Tic Tac Toe** [Project Directory](/week0/)
 - We're asked to implement a minimax search algorithm in a Tic Tac Toe game where a player is pitted against the computer on a 3x3 board.
 - The computer is playing optimally by assuming the most likely move that the opponent would take at each turn out of all possible moves. 
 - It could be challenging to code function minimax as it involves calling another function that in turn invokes the caller until a terminal state is reached.
@@ -24,3 +24,13 @@ This course marks my first step towards that goal.
 **Extended Challenge**
 - Integrate alpah-beta pruning with the minimax algorithm for better performance.
 - Code a game that's more complex than tic tac toe in a 3x3 board. 
+
+## Week 1 Knowledge
+**Prerequisites**
+- While the term **knowledge** conveys different meanings in different domains, it can be defined as a fact or information internally represented in a machine that should be accepted as truth.
+- The primary task related to knowledge we want our computer to perform involves drawing reasonable conclusions from a set of known facts encoded in computer language through the use of algorithms (or in human language's term, logic).
+- To that end, the course introduces a formal system of propositional logic that deals with the relationship and interaction between different elements.
+- The first algorithm is model checking, a somewhat brute force strategy that enumerates all possible combinations of propositions involved and cross checks known facts with the combinations to establish a truth.
+- Another algorithm is called resolution, which utilizes two widely used rules -- modus ponens and modus tollens, both of which are examples of application of implication.
+- Another inference logic we can utilize to represent knowledge is known as first order logic, a structure of predicates, constants, functions, variables and sentences.
+- Compared to propositional logic, first order logic is better at dealing with individual entities and expressing generalization, such as quantifiers.
