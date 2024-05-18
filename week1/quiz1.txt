@@ -1,0 +1,9 @@
+## Question 1
+1, False, sentence 6 indicats that either Ron or Hermione is in library. Without further information, we can't be sure who is in the library.
+2, False, we can't deduce the truthfulness of premises from an implication statement.
+3, False. Regardless of sentence 6, the two components of sentence 3 are contradictory in nature, resulting to an empty proposition that evalutes to false.
+4, True. If we know an atomic proposition is ture, then a compound proposition consisting of such atomic statement must also be true.
+5, False. We can infer premises from an implication that contains such premises.
+6, False. The two proposition, each constructed with an or connective, are not equal, which can't guarantee the second absolutely holds when the first is true.
+
+
