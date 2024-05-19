@@ -6,4 +6,11 @@
 5, False. We can infer premises from an implication that contains such premises.
 6, False. The two proposition, each constructed with an or connective, are not equal, which can't guarantee the second absolutely holds when the first is true.
 
+## Question 2
+Based on a truth table that examines all composing statements, we can conlcude the answer is the first expression.
 
+## Question 3
+The fourth one.
+
+## Question 4
+The first one.
