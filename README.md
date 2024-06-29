@@ -41,7 +41,7 @@ This course marks my first step towards that goal.
 - Another inference logic we can utilize to represent knowledge is known as first order logic, a structure of predicates, constants, functions, variables and sentences.
 - Compared to propositional logic, first order logic is better at dealing with individual entities and expressing generalization, such as quantifiers.
 
-\*\*Assignment 1: Knights [Project Directory](/week1/knights)
+**Assignment 1: Knights** [Project Directory](/week1/knights)
 
 - Based on a logical puzzle game Knights and Knaves, our task is to implement an AI model(a priliminary one) that, given a knowledge base(a set of information expressed with propositional logic), is capable of determining the identity of each character involved.
 - The building blocks of this task, logical connectives and representation of knowledge are already implemented for us. All we are asked to do is specify a list of known facts grouped together by the defined connectives.
