@@ -106,7 +106,7 @@ class Sentence():
         """
         Returns the set of all cells in self.cells known to be mines.
         """
-        if self.count == len(self.cells):
+        if self.count == len(self.cells) and self.count != 0:
             return self.cells
         return set()
 
@@ -190,11 +190,12 @@ class MinesweeperAI():
             5) add any new sentences to the AI's knowledge base
                if they can be inferred from existing knowledge
         """
-        # update moves_made
+        # 1) & 2) update moves_made and self.safes
         self.moves_made.add(cell)
+        self.mark_safe(cell)
         cells_involved = set()
 
-        # find valid neighboring cells that are not mines or safes
+        # 3) add a new sentence
         for i in range(cell[0]-1, cell[0]+2):
             for j in range(cell[1]-1, cell[1]+2):
                 if (i, j) == cell:
@@ -206,32 +207,22 @@ class MinesweeperAI():
                     elif (i, j) not in self.safes:
                         cells_involved.add((i, j))
 
-        # update knowledge base
-        self.knowledge.append(Sentence(cells_involved, count))
+        new_sent = Sentence(cells_involved, count)
+        self.knowledge.append(new_sent)
 
-        # update self.safe and draw any reasonable conclusion
-        self.mark_safe(cell)
-        knowledge_copy = copy.deepcopy(self.knowledge)
-        for k in knowledge_copy:
-            self.mines.update(k.known_mines())
-            self.safes.update(k.known_safes())
+        # 4) mark any additional cells
+        self.mark_extra()
 
-            # add sentence that can be deducted from the new one
-            infer_cells = set()
-            if k.cells < cells_involved:
-                infer_cells |= cells_involved - k.cells
-            elif k.cells > cells_involved:
-                infer_cells |= k.cells - cells_involved
-            else:
-                continue
+        # 5) draw any reasonable conclusions
+        infer = self.make_infer()
 
-            infer_sent = Sentence(infer_cells, abs(count - k.count))
-            # make sure to exclude known mines
-            risky_set = infer_cells & self.mines
-            if risky_set:
-                for c in risky_set:
-                    infer_sent.mark_mine(c)
-            self.knowledge.append(infer_sent)
+        while infer:
+            for sent in infer:
+                self.knowledge.append(sent)
+
+            self.mark_extra()
+            # make inferences again after adding inferred sentences
+            infer = self.make_infer()
 
     def make_safe_move(self):
         """
@@ -255,10 +246,54 @@ class MinesweeperAI():
             1) have not already been chosen, and
             2) are not known to be mines
         """
-
         for i in range(self.height):
             for j in range(self.width):
                 if (i, j) not in self.moves_made and (i, j) not in self.mines:
                     return (i, j)
-
         return None
+
+    def mark_extra(self):
+        """
+        Marks any additional cells as safe or mine.
+        """
+        # initialize a counter to track whether it's possible to mark more cells
+        iterations = 1
+        while iterations:
+            iterations = 0
+
+            for sentence in self.knowledge:
+                if sentence.known_mines():
+                    # iterate a copy instead of the original set
+                    for cell in sentence.known_mines().copy():
+                        self.mark_mine(cell)
+                    iterations += 1
+
+                if sentence.known_safes():
+                    for cell in sentence.known_safes().copy():
+                        self.mark_safe(cell)
+                    iterations += 1
+
+    def make_infer(self):
+        """
+        Infer from existing knowledge base and add any new derived sentences.
+        """
+        inferences = []
+
+        # try to deduce inferences by comparing any pairs of sentences in KB
+        for sent_1 in self.knowledge:
+            if not sent_1.cells:
+                continue
+            for sent_2 in self.knowledge:
+                if not sent_2.cells:
+                    continue
+
+                if sent_2.cells > sent_1.cells:
+                    infer_cells = sent_2.cells - sent_1.cells
+                    count_diff = sent_2.count - sent_1.count
+                    new_sent = Sentence(infer_cells, count_diff)
+
+                    # check if derived sentences already exist
+                    if new_sent not in self.knowledge:
+                        inferences.append(new_sent)
+
+        return inferences
