@@ -6,7 +6,7 @@ This course marks my first step towards that goal.
 
 ## Week 0 Search
 
-**Prerequisites**
+**Basics**
 
 - Search algorithms can be categorized based on different criterias. For the purpose of this conversation, we will organize them according to the kind of data structures they can operate on.
 - Conventional search algorithms, like selection sort, merge sort, quick sort etc. is suitable for none-hierachical data, while breadth-first search (BFS), depth-first search, greedy best-first search are designed to run on hierachical data.
@@ -31,7 +31,7 @@ This course marks my first step towards that goal.
 
 ## Week 1 Knowledge
 
-**Prerequisites**
+**Basics**
 
 - While the term **knowledge** conveys different meanings in different domains, it can be defined as a fact or information internally represented in a machine that should be accepted as truth.
 - The primary task related to knowledge we want our computer to perform involves drawing reasonable conclusions from a set of known facts encoded in computer language through the use of algorithms (or in human language's term, logic).
