@@ -22,7 +22,7 @@ This course marks my first step towards that goal.
 - The computer is playing optimally by assuming the most likely move that the opponent would take at each turn out of all possible moves.
 - It could be challenging to code function minimax as it involves calling another function that in turn invokes the caller until a terminal state is reached.
 - Driver file resides in `runner.py`, while all functions are inside `tictactoe.py`. Play the game by issuing `python runner.py` from the command line.
-- Check the demo ![tic tac toe demo](/demos/tictactoe.gif)
+- Check the demo(screen recording size 1024 x 768) ![tic tac toe demo](/demos/tictactoe.gif)
 
 **Extended Challenge**
 
@@ -49,3 +49,10 @@ This course marks my first step towards that goal.
 - Each child class is required to implement at least three methods -- `evaluate`, which determines whether an expression is true or false; `formula`, which returns a string representation of a logical expression designed to provide meaningful information to humans; `symbols`, enumerating labels included in an expression.
 - Function `model_check` is of particular interest as it's the processing engine that takes what's known to the program, ie knowledge base, to deduce the truthfulness of a query. This is the part that bestows "intelligence" to the entire script. If peering under the hood, however, we would discover this is actually nothing mysterious about it. This function draws a conclusion by exhasuting every possible combination of the value of symbols involved, evaluting a query to true if it's true in every possible models and false otherwise.
 - This obversation raises interesting questions: what does intelligence really mean? Will computer ever achieve true intelligence if all it does is follow pre-defined process dictated by humans?
+
+**Assignment 2: Minesweeper** [Project Directory](/week1/minesweeper)
+
+- Instead of searching for the right move that gives you most advantage by assuming your opponents always make the most optimal decisions, this game asks us to play intelligently by deriving useful insights from a known knowledge base while allowing for occassional mistakes, sometimes fatal that often stem from a lack of information.
+- Given the infrastructure code that's already provided to us, the key to solve this challenge is to realize that new knowledge should be recursively inserted into existing knowledge base in `add_knowledge` method until it's impossible to do so, for derived knowledge, combined with original knowledge, will likely lead to another set of inferences.
+- Watch AI play the game by keep pressing `AI move` on game UI after running `python runner.py`. Note it may lose when forced to make a random move.
+- Check the demo ![minesweeper demo](/demos/minesweeper.gif)
